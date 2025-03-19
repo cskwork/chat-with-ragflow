@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Flow Chat Interface</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="brand">
+                <h2>RAG Flow Chat</h2>
+            </div>
+            <div class="sidebar-content">
+                <div class="section">
+                    <h3>Chat Assistants</h3>
+                    <div class="chat-list" id="chat-list">
+                        <!-- Chat assistants will be loaded here -->
+                        <div class="loading">Loading chat assistants...</div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Sessions</h3>
+                    <div class="session-controls">
+                        <input type="text" id="session-name" placeholder="New session name">
+                        <button id="create-session-btn" disabled>Create Session</button>
+                    </div>
+                    <div class="session-list" id="session-list">
+                        <!-- Sessions will be loaded here -->
+                        <div class="no-sessions">Select a chat assistant to view sessions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3 id="current-chat-name">Select a Chat Assistant</h3>
+                <h4 id="current-session-name">Select a Session</h4>
+            </div>
+            <div class="messages" id="messages">
+                <!-- Messages will appear here -->
+                <div class="welcome-message">
+                    <h3>Welcome to RAG Flow Chat Interface</h3>
+                    <p>Select a chat assistant and session to start chatting.</p>
+                </div>
+            </div>
+            <div class="input-area">
+                <textarea id="user-input" placeholder="Type your message here..." disabled></textarea>
+                <button id="send-button" disabled>Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="message-template">
+        <div class="message">
+            <div class="message-content"></div>
+            <div class="message-time"></div>
+        </div>
+    </template>
+
+    <template id="chat-item-template">
+        <div class="chat-item">
+            <div class="chat-name"></div>
+        </div>
+    </template>
+
+    <template id="session-item-template">
+        <div class="session-item">
+            <div class="session-name"></div>
+            <button class="delete-session-btn">Delete</button>
+        </div>
+    </template>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
